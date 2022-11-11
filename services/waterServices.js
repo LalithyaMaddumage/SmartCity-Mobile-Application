@@ -1,5 +1,5 @@
 import axios from "axios";
-const HOST = "http://192.168.8.183:4000"
+const HOST = "http://192.168.1.5:4000"
 
 //add water cut details 
 export const AddWaterCut = async(payload) =>{
@@ -21,6 +21,7 @@ export const AddWaterCut = async(payload) =>{
 //retrive all water cut details
 export const getShedule = async () => {
     try {
+        console.log("awaaaaa....");
         const response = await axios.get(`${HOST}/Water/getWShedule`);
         return {
             ok: true,

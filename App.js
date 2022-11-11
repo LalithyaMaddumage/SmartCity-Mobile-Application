@@ -6,6 +6,8 @@ import AddWaterCutDetails from './src/components/waterSection/addWaterDetails';
 import ViewWaterCutDetails from './src/components/waterSection/viewWaterDetails';
 import AddPowerCutDetails from './src/components/electricitySection/addElectricityDetails';
 import ViewPowerCutDetails from './src/components/electricitySection/viewElectricityDetails';
+import WaterDetails from './src/components/waterSection/waterDetails';
+import PowerCutDetails from './src/components/electricitySection/electricityDetails';
 
 export default function App() {
   return (
@@ -17,7 +19,9 @@ export default function App() {
       {/* <AddWaterCutDetails/> */}
       {/* <ViewWaterCutDetails/> */}
       {/* <AddPowerCutDetails/> */}
-      <ViewPowerCutDetails/>
+      {/* <ViewPowerCutDetails/> */}
+      {/* <WaterDetails/> */}
+      <PowerCutDetails/>
     </View>
   );
 }

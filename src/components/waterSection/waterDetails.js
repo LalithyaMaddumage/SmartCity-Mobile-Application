@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet,RefreshControl,ScrollView,TouchableOpacity ,Modal } from 'react-native'
 import React , {useState, useEffect} from 'react'
 import {getShedule} from '../../../services/waterServices';
-import UpdateWaterCutDetails from './updateWaterDetails';
+import Swipeable from 'react-native-gesture-handler';
+// import UpdateWaterCutDetails from './updateWaterDetails';
 
 const wait = (timeout)=>{
     return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
-export default function ViewWaterCutDetails(){
+export default function WaterDetails(){
     const [waterList, setWaterList] = useState([]);
     const [refreshing, setRefreshing] = React.useState(false);
 
@@ -17,16 +18,13 @@ export default function ViewWaterCutDetails(){
     const [id, setId] = useState("");
 
     const onRefresh = React.useCallback(() => {
-        console.log("onRefresh");
 
         setRefreshing(true);
 
         wait(500).then(() => setRefreshing(false));
 
         getShedule().then((res) => {
-            console.log("get......");
             if (res.ok) {
-                console.log("ok");
                 setWaterList(res.data);
             }
 
@@ -50,8 +48,8 @@ export default function ViewWaterCutDetails(){
         return waterList.map((element)=>{
             return(
                 <View key={element._id}>
-                    <TouchableOpacity 
-                    onPress={() => { setId(element._id), setModalData(element) ,setModalVisible(true) }}>
+                    {/* <TouchableOpacity 
+                    onPress={() => { setId(element._id), setModalData(element) ,setModalVisible(true) }}> */}
                         <View style={[styles.itemList, styles.elevation]}>
                             <Text style={styles.titleID}>{element.Location}</Text>
                             <View style={styles.location}>
@@ -68,7 +66,7 @@ export default function ViewWaterCutDetails(){
                                 </View>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
                 </View>
             )
         })
@@ -91,7 +89,7 @@ export default function ViewWaterCutDetails(){
                 <View>{List()}</View>
                 </View>
 
-                <Modal
+                {/* <Modal
                     animationType="slide"
                     transparent={true}
                     onHide={() => setModalVisible(false)}
@@ -108,7 +106,7 @@ export default function ViewWaterCutDetails(){
                     onHide={() => setModalVisible(false)}
                     refresh ={onRefresh}
                 />
-                </Modal>
+                </Modal> */}
             </ScrollView>
         </View>
     )

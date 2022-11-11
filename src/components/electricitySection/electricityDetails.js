@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet,RefreshControl,ScrollView,TouchableOpacity ,Modal } from 'react-native'
 import React , {useState, useEffect} from 'react'
-import {getShedule} from '../../../services/waterServices';
-import UpdateWaterCutDetails from './updateWaterDetails';
+import {getShedule} from '../../../services/electricityService';
+// import UpdatePowerCutDetails from '../electricitySection/updateElectricityDetails';
 
 const wait = (timeout)=>{
     return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
-export default function ViewWaterCutDetails(){
-    const [waterList, setWaterList] = useState([]);
+export default function PowerCutDetails(){
+    const [PowerList, setPowerList] = useState([]);
     const [refreshing, setRefreshing] = React.useState(false);
 
     const [modalData, setModalData] = useState([]);
@@ -17,17 +17,14 @@ export default function ViewWaterCutDetails(){
     const [id, setId] = useState("");
 
     const onRefresh = React.useCallback(() => {
-        console.log("onRefresh");
 
         setRefreshing(true);
 
         wait(500).then(() => setRefreshing(false));
 
         getShedule().then((res) => {
-            console.log("get......");
             if (res.ok) {
-                console.log("ok");
-                setWaterList(res.data);
+                setPowerList(res.data);
             }
 
         }).catch((err) => {
@@ -39,7 +36,7 @@ export default function ViewWaterCutDetails(){
     useEffect(() => {
         getShedule().then((res) => {
             if (res.ok) {
-                setWaterList(res.data);
+                setPowerList(res.data);
             }
         }).catch((err) => {
             alert("error", err);
@@ -47,18 +44,18 @@ export default function ViewWaterCutDetails(){
     }, [])
 
     const List = ()=>{
-        return waterList.map((element)=>{
+        return PowerList.map((element)=>{
             return(
                 <View key={element._id}>
-                    <TouchableOpacity 
-                    onPress={() => { setId(element._id), setModalData(element) ,setModalVisible(true) }}>
+                    {/* <TouchableOpacity 
+                    onPress={() => { setId(element._id), setModalData(element) ,setModalVisible(true) }}> */}
                         <View style={[styles.itemList, styles.elevation]}>
                             <Text style={styles.titleID}>{element.Location}</Text>
                             <View style={styles.location}>
                                 <Text style={styles.titleData}>{element.Date}</Text>
                             </View>
                             <View style={styles.list3}>
-                                <Text style={styles.list}>Water Cut    </Text>
+                                <Text style={styles.list}>Power Cut    </Text>
 
                                 <View style={styles.fuellist}>
                                     <Text style={styles.time}>From :  </Text>
@@ -68,7 +65,7 @@ export default function ViewWaterCutDetails(){
                                 </View>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
                 </View>
             )
         })
@@ -86,12 +83,12 @@ export default function ViewWaterCutDetails(){
             >
                 <View style={{ flex: 1, paddingTop: 20 }}>
                     <Text style={styles.header}>
-                        Water Cut Details
+                        Power Cut Details
                     </Text>
                 <View>{List()}</View>
                 </View>
 
-                <Modal
+                {/* <Modal
                     animationType="slide"
                     transparent={true}
                     onHide={() => setModalVisible(false)}
@@ -103,12 +100,12 @@ export default function ViewWaterCutDetails(){
                         setModalVisible(false);
                     }}
                 >
-                <UpdateWaterCutDetails
+                <UpdatePowerCutDetails
                     data={modalData}
                     onHide={() => setModalVisible(false)}
                     refresh ={onRefresh}
                 />
-                </Modal>
+                </Modal> */}
             </ScrollView>
         </View>
     )

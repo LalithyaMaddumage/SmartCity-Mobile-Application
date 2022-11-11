@@ -1,5 +1,5 @@
 import axios from "axios";
-const HOST = "http://192.168.8.183:4000"
+const HOST = "http://192.168.1.5:4000"
 
 //add power cut details 
 export const AddPowerCut = async(payload) =>{
