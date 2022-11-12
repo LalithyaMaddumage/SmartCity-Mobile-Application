@@ -3,6 +3,7 @@ import Swipeable from 'react-native-gesture-handler';
 import React , {useState, useEffect} from 'react'
 import { getWaste } from '../../../services/wasteService'
 import ViewWasteDetailsCus from './viewWasteDetailsCus';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 
 const wait = (timeout) => {
@@ -170,7 +171,15 @@ refreshControl={
 
 </ScrollView>
 
+<View style={styles.bottom}>
+<View style={{flex:1,flexDirection: "row"}}>
 
+<Icon name = "cog-outline" color = "#ffffff" size = {40} style={{marginTop:7,marginLeft:50,marginRight:50}}/>
+<Icon name = "home-outline" color = "#ffffff" size = {40} style={{marginTop:7,marginLeft:50,marginRight:50}}/>
+<Icon name = "account-outline" color = "#ffffff" size = {40} style={{marginTop:7,marginLeft:50,marginRight:50}}/>
+</View>
+
+</View>
       {/* <Text >Fuel Details</Text> */}
       </ImageBackground>
   )
@@ -271,4 +280,11 @@ const styles = StyleSheet.create({
     list3 :{
         marginTop : 5,
     },
+    bottom:{
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        backgroundColor: "#111B34",
+        height: 60
+
+    }
 })

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,RefreshControl,ScrollView,TouchableOpacity ,Modal } from 'react-native'
+import { View, Text, StyleSheet,RefreshControl,ScrollView,TouchableOpacity ,Modal,ImageBackground } from 'react-native'
 import Swipeable from 'react-native-gesture-handler';
 import React , {useState, useEffect} from 'react'
 import { getGasStation } from '../../../services/gasService'
@@ -101,7 +101,7 @@ export default function GasDetails() {
     
 
   return (
-    <View style ={styles.body}>
+    <ImageBackground source = { require('../../../assets/background3.png')}  style={styles.body}>
      <ScrollView
 refreshControl={
 <RefreshControl
@@ -154,20 +154,21 @@ refreshControl={
 
     </Modal>
     </ScrollView>
-    </View>
+    </ImageBackground>
   )
 } 
 
 const styles = StyleSheet.create({
-
     body: {
-   
-        // alignItems: 'center',
-        paddingTop: 50,
-        margin:12,
-      
-       
-    },
+        //  alignSelf:'stretch',
+            flex:1,    
+            paddingTop: 50,
+            height:null,
+            width:null,
+            // // backgroundColor: 'blue',
+            // // fontSize: 150
+            // justifyContent: 'center',
+        },
 
     header:{
         textAlign: 'left',

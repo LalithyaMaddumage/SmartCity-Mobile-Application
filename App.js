@@ -20,8 +20,10 @@ import WasteDetails from './src/components/wasteSection/wasteDetails'
 import AddWasteCenter from './src/components/wasteCenterSection/addWasteCenterDetails'
 import ViewWasteCenter from './src/components/wasteCenterSection/viewWasteCenterDetails'
 import WasteCenterDetails from './src/components/wasteCenterSection/wasteCenterDetails'
+import Login from './src/components/user/Login'
 
 const Drawer = createDrawerNavigator();
+const LoginStackScreen = createStackNavigator();
 const GasStackScreen = createStackNavigator();
 const WasteCenterStackScreen = createStackNavigator();
 const WasteStackScreen = createStackNavigator();
@@ -75,8 +77,8 @@ const WasteCenterDetailsScreen = ({navigation})=>(
 );
 
 const GasDetailsScreen = ({navigation})=>(
-  <FuelStackScreen.Navigator screenOptions={{ headerShown: false }}>
-  <FuelStackScreen.Screen name="Gas" component={GasDetails} options = {{
+  <GasStackScreen.Navigator screenOptions={{ headerShown: false }}>
+  <GasStackScreen.Screen name="Gas" component={GasDetails} options = {{
     headerLeft: () => (
       <Icon.Button name="ios-menu" size ={25}
          backgroundColor="#009387" onPress = {() => {
@@ -85,9 +87,24 @@ const GasDetailsScreen = ({navigation})=>(
          </Icon.Button>
     )
     }} />
-    </FuelStackScreen.Navigator>
+    </GasStackScreen.Navigator>
 
 );
+
+// const LoginDetailsScreen = ({navigation})=>(
+//   <LoginStackScreen.Navigator screenOptions={{ headerShown: false }}>
+//   <LoginStackScreen.Screen name="Login" component={FuelDetails} options = {{
+//     headerLeft: () => (
+//       <Icon.Button name="ios-menu" size ={25}
+//          backgroundColor="#009387" onPress = {() => {
+//           navigation.openDrawer()}}
+//          >
+//          </Icon.Button>
+//     )
+//     }} />
+//     </FuelStackScreen.Navigator>
+
+// );
 
 export default function App() {
   return (
@@ -100,6 +117,7 @@ export default function App() {
       <Drawer.Screen name="FuelDetails" component={FuelDetailsScreen} />
       <Drawer.Screen name="WasteCenter" component={WasteCenterDetailsScreen} />
       <Drawer.Screen name="Gas" component={GasDetailsScreen} />
+   
      </Drawer.Navigator>
     </NavigationContainer>
 
@@ -114,10 +132,11 @@ export default function App() {
   //   {/* <FuelDetails/> */}
   //   {/* <AddWasteDetails/> */}
   //   {/* <ViewWasteDetails/> */}
-  //   {/* <WasteDetails/> */}
+  //   <WasteDetails/>
   //   {/* <AddWasteCenter/> */}
   //   {/* <ViewWasteCenter/> */}
   //   {/* <WasteCenterDetails/> */}
+  //   {/* <Login/> */}
   //   </View>
  
   );
