@@ -10,6 +10,7 @@ export default function AddPublicTransport() {
     const [discription , setDiscription] = useState ("");
     const [vehicleNo , setVehicleNo] = useState ("");
     const [contact, setContact] = useState("");
+    
 
     const sendData = async() =>{
         const newPublicTransport={

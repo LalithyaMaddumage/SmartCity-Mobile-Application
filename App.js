@@ -5,6 +5,9 @@ import ViewFuelDetails from './src/components/fuelSection/viewFuelDetails';
 import AddPublicTransport from './src/components/publicTransport/addPublicTransport';
 import ViewPublicTransportDetails from './src/components/publicTransport/viewPublicTransport';
 import PublicTransportDetails from './src/components/publicTransport/publicTransportDetails';
+import AddPrivateTransport from './src/components/privateTransport/addPrivateTransport';
+import ViewPrivateTransportDetails from './src/components/privateTransport/viewPrivateTransport';
+import PrivateTransportDetails from './src/components/privateTransport/privateTransportDetails';
 
 export default function App() {
   return (
@@ -15,7 +18,10 @@ export default function App() {
        {/* <ViewFuelDetails/> */}
        {/* <AddPublicTransport/> */}
        {/* <ViewPublicTransportDetails/> */}
-       <PublicTransportDetails/>
+       {/* <PublicTransportDetails/> */}
+       {/* <AddPrivateTransport/> */}
+       {/* <ViewPrivateTransportDetails/> */}
+       <PrivateTransportDetails/>
     </View>
   );
 }
